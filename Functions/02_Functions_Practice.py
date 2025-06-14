@@ -1,6 +1,6 @@
-# Q1. Write a function  prints the string "Hello, World!".
+# Q1. Write a function to print the string "Hello, World!"
 def greet():
-    print("Hello world!")
+    print("Hello, world!")
 greet()
 print("\n")
 
@@ -11,13 +11,13 @@ def add(a,b):
 
 print(add(2,3),"\n") 
 
-# Q3. TAKE AN INT AS INPUT AND THEN PRINT TRUE IF EVEN ELSE FALSE 
+# Q3. TAKE AN INT AS INPUT AND THEN PRINT TRUE IF EVEN, ELSE FALSE 
 n = int(input("enter number = "))
 def even(n):
     if (n%2==0):
-        return "EVEN"
+        return True
     else:
-        return "FALSE"
+        return False
 print(even(n),"\n")
 
 # Q4. ENTER 3 NUMBERS AND PRINT THE LARGEST OF THEM
@@ -43,13 +43,16 @@ def fact(N):
 print("FACTORIAL =",fact(N),"\n")
 
 # Q6. REVERSE A STRING
-str = input("enter string = ")
-n = len(str)
-str2 = ""
-def rev(str):
-    i = 0
-    for char in range(0,n):
-        str2[i] = str[n]
+
+s = input("Enter string = ")
+n = len(s)
+def rev(s, n):
+    s2 = ""                 
+    for i in range(n, 0, -1):
+        s2 = s2 + s[i - 1]  
+    return s2             
+
+print(rev(s, n))
 
 # Q7. PRINT A LIST AND SUM OF ITS ELEMENTS
 list1 = [1,2,3,4,5]
@@ -71,15 +74,13 @@ def prime(n):
             return "NON - PRIME"
         else:
             return "PRIME"
-print(prime(n))
+print(prime(n),"\n")
 
 # Q9. PRINT THE FIBONNACI SERIES5
 n = int(input("enter n = "))
 a = 0
 b =1 
 c = 0
-print(a)
-print(b)
 list1 = [a,b]
 def fib(a,b,c):
     for ele in range(n-2):
@@ -92,11 +93,19 @@ print(fib(a,b,c),"\n")
 
 # Q10. PALINDROME CHECKER
 n = int(input("enter n = "))
+
 def palindrome(n):
-    pal = 0
-    a = 0 
-    while a > 10:
-        a = n / 10 
-        pal = (pal * 10) + a
-    return pal
-print(palindrome(n))
+    pal = 0                    # holds the reversed number
+    i = n 
+    a = 0                # copy of the original
+    while i > 0:
+        a = i % 10      # extract last digit
+        pal = pal * 10 + a
+        i = i // 10
+    return (pal - n) == 0   # True if same, False otherwise
+
+# Call function and print result
+if palindrome(n):
+    print("Yes, it is a palindrome")
+else:
+    print("No, it is not a palindrome")
