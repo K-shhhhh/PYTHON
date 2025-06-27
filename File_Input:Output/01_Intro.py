@@ -1,0 +1,115 @@
+"""
+- PYHTON CAN BE USED TO PERFORM OPERATIONS ON A FILE (READ/WRITE)
+- TYPES OF FILES :-
+    1). TEXT FILES (CHARACTERS) : .TXT , .DOCX , .LOG ETC
+    2). BINARY FILES (NON-CHARACTERS): .MP4 , .MOV , .PNG , .JPEG
+
+- OPEN, READ AND CLOSE FILE :-
+- WE HAVE TO OPEN FILE TO READ OR WRITE ON IT
+- HOW TO OPEN AND CLOSE : 
+    F = OPEN("FILE_NAME","MODE")
+    FILE_NAME CAN BE ABC.TXT , DEF.DOCX
+    MODE CAN BE R(READ) AND W(WRITE)
+    IF YOU DONT WRITE ANY MODE, IT IS TAKEN AS R
+    TO CLOSE FILE = F.CLOSE()
+
+- READING METHOD:-
+    DEFAULT : F = OPEN("FILE_NAME","R")
+        1). DATA = F.READ()         # READ WHOLE 
+        2). DATA = F.READ(N)        # READ N CHARACTERS AT A TIME
+        3). DATA = F.READLINE()     # READS 1 LINE AT A TIME
+
+- WRITING METHOD:- (IF FILE DOESNT EXIST IF WE OPEN IN A OR W MODE, IT CREATES IT)
+    A). W (WRITE) 
+    - OVERWRITES WHATEVER IS WRITTEN IN FILE
+    - F = OPEN("FILE_NAME","W")
+      F.WRITE("ABC) 
+
+    B). A (APPEND) 
+    - ADDS TO THE FILE
+    - F = OPEN("FILE_NAME","A")
+      F.WRITE("ABC")
+
+    C). A+ (APPEND+, NO TRUNCATE)
+    - STREAM(POINTER) IS POSITIONED AT THE END OF A FILE 
+    - STARTS READING AND APPENDING FROM END
+    - F = OPEN("FILE_NAME","A+")
+      F.WRITE("ABC")                # STREAM STRTS FROM END
+      PRINT(F.READ())               # READS ORIGINAL CONTENT AND APPENDING CONTENT
+
+- READ + WRITING METHOD:- (NO TRUNCATE)
+    - STREAM (POINTER) STARTS OVERWRITING FROM THE BEGINNING OF THE FILE
+    - STARTS READING FROM WHERE THE POINTER ENDS
+    - F = OPEN("FILE_NAME","R+")
+      F.WRITE("ABC")                # STREAM STARTS FROM START 
+      PRINT(F.READ())               # STARTS READING FROM WHERE STREAM ENDS
+
+- WRITING + READING METHOD:- (TRUNCATE)
+    - WIPES OUT EVERYTHING AND REWRITES 
+    - READS THE NEW CONTENT
+    - F = OPEN("FILE_NAME","W+")
+      F.WRITE("ABC")                # OVERWRITES EVERYTHING
+      PRINT(F.READ())               # READS THE NEW CONTENT
+
+- USING WITH AND AS:-
+    - KIND OF A LOOP TO PERFROM READ AND WRITE TASK
+    - SYNTAX : 
+      WITH OPEN("FILE_NAME","R") AS F:
+        DATA = F.READ()
+        PRINT(DATA)
+    - HERE WE DONT EVEN HAVE TO WRITE F.CLOSE() TO CLOSE FILE, LOOP DOES IT FOR US
+    
+
+
+"""
+print("\n")
+
+
+# Q1. OPEN AND READ THE DEMO.TXT FILE
+
+f = open("Demo.txt","r")
+data = f.read()
+print(data)
+f.close()
+print("\n")
+
+# Q2. OPEN AND READ THE FIRST CHARACTER THE DEMO.TXT FILE
+
+f = open("Demo.txt","r")
+data = f.read(1)                # H
+print(data)
+f.close()
+print("\n")
+
+# Q3. OPEN AND READ THE FIRST LINE THE DEMO.TXT FILE
+
+f = open("Demo.txt","r")
+line1 = f.readline()            # HI MY NAME IS KRISH LONGWANI
+print(line1)
+f.close()
+print("\n")
+
+# Q4. OVERWRITE WHATEVER IS WRITTEN IN DEMO.TXT
+
+f = open("Demo.txt","w")
+f.write("I WISH MY NAME WAS KABIR")
+f.close()                       # CHECK THE DEMO.TXT FILE, IT WILL ONLY HAVE THIS ONE LINE
+
+# Q5. APPEND A LINE IN DEMO.TXT
+
+f = open("Demo.txt","a")
+f.write("\nI LOVE SPORTS")      # CHECK THE DEMO.TXT FILE, ITLL HAVE A NEW LINE 
+f.close()
+
+# Q6. CREATE A NEW FILE SAMPLE.TXT USING FILE I/O METHODS
+
+f = open("Sample.txt","w")      # CAN USE BOTH W OR A
+f.write("This is a sample file created to be accesed by File I/0 Methods amd Modules")
+f.close()                       # CHECK IN DIRECTORY, NEW FILE CREATED
+
+# Q7. READ AND WRITE THE DEMO.TXT FILE
+
+f = open("Demo.txt","r+")
+f.write("BYE")
+print(f.read())
+f.close()
