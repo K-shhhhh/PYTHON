@@ -1,5 +1,4 @@
 # Q. IN AN GIVEN ARRAY, FIND IF THERE ARE ANY DUPLICATES(ONLY 1 PRESENT). IF IT PRESENT, RETURN TRUE AND THE NUMBER WHICH HAS A DUPLICATE
-
 n = int(input("Enter size of nums: "))
 nums = []
 for idx in range(n):
