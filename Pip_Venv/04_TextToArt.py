@@ -1,6 +1,6 @@
 from art import *                     # Import Everything Directly
 
-# Basic text art
+# Text2Art converts basic texts to art
 
 print(text2art("FEED"))               # Converts text to ASCII Art
 print(text2art("ME"))                 # Prints a happy face
