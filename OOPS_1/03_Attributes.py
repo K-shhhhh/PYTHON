@@ -31,4 +31,4 @@ s1 = students("KRISH")
 print(s1.name, s1.college_name)                 # PRINT USING OBJECT
 
 s2 = students("HIYU")
-print(s2.name, students.college_name)           # PRINT USING CLASS
+print(s2.name, students.name)           # PRINT USING CLASS

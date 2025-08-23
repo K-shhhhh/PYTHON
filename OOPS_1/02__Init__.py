@@ -17,8 +17,9 @@ print("\n")
 class Student:                          # CREATING CLASS
     name = "KRISH"
     def __init__ (self):                # DEF INIT FUNCTION USING SELF 
-        print(self)                     # PRINTING SELF
+                             # PRINTING SELF
         print("ADDING NEW STUDENTS")    # COMMAND FOR INIT FUNCTION
+        return self 
 
 s1 = Student()                          # CREATE NEW OBJ
 print("\n")
