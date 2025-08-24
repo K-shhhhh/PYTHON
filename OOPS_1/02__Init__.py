@@ -13,22 +13,11 @@ AFTER SELF PARAMETER, WE CAN USE ANY PARAMETER WE WANT AND THEN LINK IT WITH SEL
 """
 print("\n")
 
-# Q1. USE INIT FUNCTION IN A CLASS / OBJECT
-class Student:                          # CREATING CLASS
-    name = "KRISH"
-    def __init__ (self):                # DEF INIT FUNCTION USING SELF 
-                             # PRINTING SELF
-        print("ADDING NEW STUDENTS")    # COMMAND FOR INIT FUNCTION
-        return self 
-
-s1 = Student()                          # CREATE NEW OBJ
-print("\n")
-
-# Q2. ADD 3 NAMES AND MARKS IN A CLASS WITH RENAMING SELF PARAMETER
+# Q1. ADD 3 NAMES AND MARKS IN A CLASS WITH RENAMING SELF PARAMETER
 class Students:                         # CREATE CLASS                         
-    def __init__(ABC, name, marks):     # DEF INIT FUNCTION WITH ABC, NAME, MARKS
-        ABC.name = name                 # LINKING NAME WITH ABC
-        ABC.marks = marks               # LINKING MARKS WITH abc
+    def __init__(self, name, marks):     # DEF INIT FUNCTION WITH ABC, NAME, MARKS
+        self.name = name                 # LINKING NAME WITH ABC
+        self.marks = marks               # LINKING MARKS WITH abc
         print("ADDING NEW NAMES")       # COMMAND FOR INIT FUNCTION
 
 S1 = Students("KRISH", 90)                  # CREATE OBJ AND ADD N1/M1 TO CONSTRUCTOR
